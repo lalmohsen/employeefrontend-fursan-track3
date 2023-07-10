@@ -33,7 +33,7 @@ jobs:
       - name: provisioning step 2
         run: echo "provisioning step 2"
 
-    deployment-job: 
+  deployment-job: 
     runs-on: ubuntu-latest
     steps:
       - name: deployment step 1
@@ -42,7 +42,7 @@ jobs:
       - name: deployment step 2
         run: echo "deployment step 2"
 
-    monitoring-job: 
+  monitoring-job: 
     runs-on: ubuntu-latest
     steps:
       - name: monitoring step 1
