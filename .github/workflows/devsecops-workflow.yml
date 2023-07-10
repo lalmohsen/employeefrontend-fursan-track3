@@ -1,0 +1,16 @@
+name: Employeefrontend DevSecOps Workflow
+
+on:
+  push: 
+    branches: [main]
+  workflow_dispatch: 
+
+jobs:
+  build-job: 
+    runs-on: ubuntu-latest
+    steps:
+        name: Build step 1
+        run: echo "Build step 1"
+
+        name: Build step 2
+        run: echo "Build step 2"
