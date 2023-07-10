@@ -14,3 +14,39 @@ jobs:
 
       - name: Build step 2
         run: echo "Build step 2"
+  
+  test-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: test step 1
+        run: echo "test step 1"
+
+      - name: test step 2
+        run: echo "test step 2"
+  
+  provisioning-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: provisioning step 1
+        run: echo "provisioning step 1"
+
+      - name: provisioning step 2
+        run: echo "provisioning step 2"
+
+    deployment-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: deployment step 1
+        run: echo "deployment step 1"
+
+      - name: deployment step 2
+        run: echo "deployment step 2"
+
+    monitoring-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: monitoring step 1
+        run: echo "monitoring step 1"
+
+      - name: monitoring step 2
+        run: echo "monitoring step 2"
