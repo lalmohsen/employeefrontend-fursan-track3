@@ -34,7 +34,7 @@ jobs:
 
   npm-audit-scan-job:
     name: NPM Audit Scan for Vulnerabilities
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Step1 download the source code
         uses: actions/checkout@v3.5.3
