@@ -22,7 +22,7 @@ jobs:
 
       - name: Step4 SonarCloud    Scan
         uses: sonarsource/sonarcloud-github-action@master
-         env:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
