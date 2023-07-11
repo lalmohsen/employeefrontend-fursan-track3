@@ -51,7 +51,7 @@ jobs:
         uses: npm audit --json > npm-audit-results.json
 
       - name: Step5 upload npm audit scan report to github
-        uses: actions/upload-artifact@3
+        uses: actions/upload-artifact@v3
         with:
           name: npm-audit-results
           path: npm-audit-results.json
