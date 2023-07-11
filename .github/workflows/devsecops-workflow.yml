@@ -1,52 +1,33 @@
-name: Employeefrontend DevSecOps Workflow
+name: Employeefrontend DevSecops Workflow 
 
 on:
-  push: 
-    branches: [main]
-  workflow_dispatch: 
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  build-job: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build step 1
-        run: echo "Build step 1"
+  sonarcloud-scan:
+    runs-on: ubuntu-lastest
+    steps: 
+      - name: Step1 Download the Source Code
+        uses: actions/checkout@v3.5.3
 
-      - name: Build step 2
-        run: echo "Build step 2"
-  
-  test-job: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: test step 1
-        run: echo "test step 1"
+      - name: Step2 Install Node.js
+        uses: actions/setup-node@v3.7.0
+        with: 
+          node-version: '18.16.1'
+      
+      - name: Step3 Install Dependencies
+        run: npm install
 
-      - name: test step 2
-        run: echo "test step 2"
-  
-  provisioning-job: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: provisioning step 1
-        run: echo "provisioning step 1"
-
-      - name: provisioning step 2
-        run: echo "provisioning step 2"
-
-  deployment-job: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: deployment step 1
-        run: echo "deployment step 1"
-
-      - name: deployment step 2
-        run: echo "deployment step 2"
-
-  monitoring-job: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: monitoring step 1
-        run: echo "monitoring step 1"
-
-      - name: monitoring step 2
-        run: echo "monitoring step 2"
+      - name: Step4 SonarCloud    Scan
+        uses: sonarsource/sonarcloud-github-action@master
+         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=lama
+            -Dsonar.projectKey=lama_employeefrontend-fursan-track3
+            -Dsonar.sources=.
+            -Dsonar.host.url=https://sonarcloud.io
