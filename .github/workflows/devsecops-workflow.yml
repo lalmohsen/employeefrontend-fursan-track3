@@ -22,7 +22,7 @@ jobs:
         uses: npm install
       
       - name: Step4 npm audit scan
-        uses: npm audit --json
+        uses: npm audit --json | npm-audit-results.json
         continue-on-error: true
 
       - name: Step5 upload npm audit scan report to github
