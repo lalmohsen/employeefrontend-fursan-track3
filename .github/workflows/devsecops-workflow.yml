@@ -32,26 +32,26 @@ jobs:
             -Dsonar.sources=.
             -Dsonar.host.url=https://sonarcloud.io
 
-npm-audit-scan-job:
-  name: NPM Audit Scan for Vulnerabilities
-  run-on: ubuntu-latest
-  steps:
-    - name: Step1 download the source code
-      uses: actions/checkout@v3.5.3
+  npm-audit-scan-job:
+    name: NPM Audit Scan for Vulnerabilities
+    run-on: ubuntu-latest
+    steps:
+      - name: Step1 download the source code
+        uses: actions/checkout@v3.5.3
 
-    - name: Step2 install node.js
-      uses: actions/setup-node@v3.7.0
-      with:
-        node-version: '18.16.1'
-    
-    - name: Step3 install dependancies
-      uses: npm install
-    
-    - name: Step4 npm audit scan
-      uses: npm audit --json > npm-audit-results.json
+      - name: Step2 install node.js
+        uses: actions/setup-node@v3.7.0
+        with:
+          node-version: '18.16.1'
+      
+      - name: Step3 install dependancies
+        uses: npm install
+      
+      - name: Step4 npm audit scan
+        uses: npm audit --json > npm-audit-results.json
 
-    - name: Step5 upload npm audit scan report to github
-      uses: actions/upload-artifact@3
-      with:
-        name: npm-audit-results
-        path: npm-audit-results.json
+      - name: Step5 upload npm audit scan report to github
+        uses: actions/upload-artifact@3
+        with:
+          name: npm-audit-results
+          path: npm-audit-results.json
